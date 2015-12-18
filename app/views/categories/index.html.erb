@@ -1,0 +1,28 @@
+
+
+
+<section id="works"></section>
+<div class="container">
+  <div class="row centered ">
+
+    <% @categories.each do |category| %>
+        <div class="main">
+        <div class="view view-third col-lg-4 col-md-4 col-sm-4">
+          <a href="#" class="info"><%= category.title %></a>
+          <%= image_tag category.image, style: 'width: 450px; height: 450px' if category.image? %>
+
+          <div class="mask">
+            <h2><%= category.short_description %></h2>
+            <p><%= category.description %></p>
+            <a href="#" class="info">Read More</a>
+          </div>
+
+        </div>
+        </div>
+
+
+
+    <% end %>
+  </div><! --/row -->
+</div><! --/container -->
+
