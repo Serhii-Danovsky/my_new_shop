@@ -1,0 +1,19 @@
+<div class="main">
+  <div class="view view-sixth col-lg-4 col-md-4 col-sm-4">
+
+    <%= link_to product do %>
+        <%= image_tag product.image, style: 'width: 300px; height: 300px' if product.image? %>
+    <% end %>
+    <div class="mask">
+      <a href="#" class="info"><%= product.title %></a>
+
+      <p><%= product.description %></p>
+
+      <div class="info"><h2> Price: <%= number_to_currency(product.price, precision: 2, separator: ',') %></div>
+      <div class="info"><h2><%= link_to 'BUY', product %></div>
+    </div>
+
+  </div>
+</div>
+
+
