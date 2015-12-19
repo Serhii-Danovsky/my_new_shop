@@ -10,6 +10,9 @@
 
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @product.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+  <dd><%= @product.price %></dd>
+  <%= image_tag @product.image, style: 'width: 300px; height: 300px' if @product.image? %>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

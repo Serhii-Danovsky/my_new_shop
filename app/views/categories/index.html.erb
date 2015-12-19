@@ -5,7 +5,7 @@
     <% @categories.each do |category| %>
         <div class="main">
           <div class="view view-third col-lg-4 col-md-4 col-sm-4">
-            <a href="#" class="info"><%= category.title %></a>
+            <a href="#" class="info showtitle"><%= category.title %></a>
             <%= link_to category do %>
                 <%= image_tag category.image, style: 'width: 450px; height: 450px' if category.image? %>
             <% end %>
