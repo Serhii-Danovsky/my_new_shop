@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  get 'products/index'
+
+  get 'products/show'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :categories, only: [:index, :show]
+  resources :products, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
