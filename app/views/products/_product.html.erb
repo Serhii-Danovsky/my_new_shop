@@ -10,7 +10,7 @@
       <p><%= product.description %></p>
 
       <div class="info"><h2> Price: <%= number_to_currency(product.price, precision: 2, separator: ',') %></div>
-      <div class="info"><h2><%= link_to 'BUY', product %></div>
+      <div class="info"><h2><%= link_to 'BUY', product ,class: "btn btn-danger" %></div>
     </div>
 
   </div>

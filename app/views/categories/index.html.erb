@@ -2,11 +2,11 @@
 <div class="container-fluid">
   <div class="row centered ">
 
-    <% @categories.each do |category| %>
+    <% @categories.each_with_index do |category, index| %>
         <div class="main">
           <div class="view view-third col-lg-4 col-md-4 col-sm-4">
-            <a href="#" class="info showtitle"><%= category.title %></a>
-            <%= link_to category do %>
+            <a href="#" class="info showtitle"><%= category.title %> Ring</a>
+            <%= link_to products_path(category: category.id), class: 'category-link' do %>
                 <%= image_tag category.image, style: 'width: 450px; height: 450px' if category.image? %>
             <% end %>
             <div class="mask">
