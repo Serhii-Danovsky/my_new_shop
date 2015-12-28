@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>MyNewShop</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -14,19 +14,30 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li ><a href="#">Home</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li>
-        <li><a href="#">Page 3</a></li>
+        <li><a href="#">Home</a></li>
+
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li> <%= link_to 'Заказы', orders_path %></li>
+        <li>
+          <%= link_to cart_path do %>
+              <span>Корзина</span>
+            <span class='badge'>
+              <%= Cart.find(session[:cart_id]).line_items.count %>
+            </span>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-
+<% if notice.present? %>
+    <div class="alert alert-info fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong><%= notice %></strong>
+    </div>
+<% end %>
 <%= yield %>
 
 </body>

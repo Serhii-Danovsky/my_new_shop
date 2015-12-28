@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  get 'products/index'
+  ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
 
+  get 'cart' => 'carts#show'
+  get 'products/index'
   get 'products/show'
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  resources :line_items, only: [:create, :destroy]
   resources :categories, only: [:index, :show]
   resources :products, only: [:index, :show]
+  resources :orders, only: [:create, :new, :show, :index]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

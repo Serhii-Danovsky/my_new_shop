@@ -15,4 +15,18 @@ ActiveAdmin.register Product do
 # end
 
 
+
+  index do
+    column :id
+    column 'image' do |product|
+      image_tag product.image_url(:small) if product.image?
+    end
+    column 'Название', :title
+    column 'description', :description
+    column 'price', :price
+    column 'category_id', :category_id
+    actions
+  end
+
+
 end

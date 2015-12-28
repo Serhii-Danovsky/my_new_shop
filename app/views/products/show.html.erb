@@ -1,20 +1,16 @@
-<h1>Products#show</h1>
-<%- model_class = Product -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+<div class="container">
+
+  <div align="center">
+    <h1 class=" btn btn-warning active"><%= @product.title %></h1>
+    <h2 align="right"><%= button_to 'Buy', line_items_path(product_id: @product), class: 'btn btn-danger active' %></h2>
+    <%= image_tag @product.image_url(:big) %>
+  </div>
+  <div class="product-description">
+    <%= @product.description %>
+  </div>
+  <div class="product-price">
+    Price: <%= number_to_currency(@product.price, precision: 2, separator: ',') %>
+  </div>
+
+  <%= link_to 'Back', url_for(:back), class: 'btn btn-default' %>
 </div>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @product.title %></dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @product.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
-  <dd><%= @product.price %></dd>
-  <%= image_tag @product.image, style: 'width: 300px; height: 300px' if @product.image? %>
-</dl>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
-            categories_path, :class => 'btn btn-default'  %>
-

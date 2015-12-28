@@ -1,0 +1,13 @@
+<%= @order.name %>
+<br>
+<%= @order.phone %>
+<br>
+<%= @order.status %>
+<br>
+<% @order.order_items.each do |item| %>
+  <%= item.title %>
+    <br>
+  <%= item.price %>
+    <br>
+  <%= item.quantity %>
+<% end %>
